@@ -30,11 +30,9 @@ header h1 {
 }
 
 .bloco-cronofocus {
-    min-width: 80px;
-    min-height: 120px;
-    /*width: 115px; PC*/
-    /*max-height: 180px; PC*/
-    font-size: 10em;
+    width: 90px;
+    height: 90px;
+    font-size: 4em;
     border: 1px solid black;
 }
 
