@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+:root {
+    --fonte-principal: 'Space Grotesk'
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--fonte-principal);
+}
+
+header svg {   
+    width: 25px;
+}
+
+header {
+    display: flex;
+}
+
+header h1 {
+    font-size: 1.5em;
+}
+
+#hora-principal {
+    display: flex;
+    text-align: center;
+}
+
+.bloco-cronofocus {
+    min-width: 80px;
+    min-height: 120px;
+    /*width: 115px; PC*/
+    /*max-height: 180px; PC*/
+    font-size: 10em;
+    border: 1px solid black;
+}
+
