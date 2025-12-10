@@ -3,7 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
 :root {
-    --fonte-principal: 'Space Grotesk'
+    --fonte-principal: 'Space Grotesk';
+    --cor-fundo01: #1A202C;
+    --cor-fundo02: #F1F5F2;
+    --cor-destaque: #2F855A;
+    --cor-texto: #68D391;
+    --cor05: #ffffffac;
 }
 
 * {
@@ -12,8 +17,14 @@
     font-family: var(--fonte-principal);
 }
 
+body {
+    background-color: var(--cor-fundo01);
+    color: var(--cor-texto);
+}
+
 header svg {   
     width: 25px;
+    color: var(--cor-texto);
 }
 
 header {
@@ -22,17 +33,20 @@ header {
 
 header h1 {
     font-size: 1.5em;
+    color: var(--cor-texto);
 }
 
 #hora-principal {
     display: flex;
     text-align: center;
+    font-weight: 500;
 }
 
 .bloco-cronofocus {
     width: 90px;
     height: 90px;
     font-size: 64px;
-    border: 1px solid black;
+    border: 1px solid var(--cor05);
+    color: var(--cor-destaque);
 }
 
