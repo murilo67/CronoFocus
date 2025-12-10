@@ -42,11 +42,10 @@ header h1 {
     font-weight: 500;
 }
 
-.bloco-cronofocus {
+.timer {
     width: 90px;
     height: 90px;
     font-size: 64px;
     border: 1px solid var(--cor05);
     color: var(--cor-destaque);
 }
-
