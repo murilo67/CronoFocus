@@ -17,9 +17,13 @@
         font-size: 85px;
     }
 
-    button {
+    #botao-iniciar {
         width: 100px;
         height: 50px;
         font-size: 25px;
+    }
+
+    dialog {
+        width: 500px;
     }
 }

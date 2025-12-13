@@ -70,19 +70,19 @@
             <span class="material-symbols-outlined" id="fechar">close</span>
         </div>
         <section id="definir-timer">
-            <p>
-                Horas:
-                <input type="number" name="" id="">
-            </p>
-            <p>
-                Minutos:
-                <input type="number" name="" id="">
-            </p>
-            <p>
-                Segundos:
-                <input type="number" name="" id="">
-            </p>
-            <button>Salvar</button>
+            <div class="timer-config">
+                <label for="horas-id">Horas:</label>
+                <input type="number" name="horas-name" id="horas-id" value="05" min="0" max="24">
+            </div>
+            <div class="timer-config">
+                <label for="minutos-id">Minutos:</label>
+                <input type="number" name="minutos-name" id="minutos-id" value="30" min="0" max="59">
+            </div>
+            <div class="timer-config">
+                <label for="segundos-id">Segundos:</label>
+                <input type="number" name="segundos-name" id="segundos-id" value="00" min="0" max="59">
+            </div>
+            <button id="salvar-config">Salvar</button>
         </section>
     </dialog>
     <div id="overlay"></div>
