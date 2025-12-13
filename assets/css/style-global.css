@@ -39,6 +39,7 @@ header {
 
 #logo {
     display: flex;
+    align-items: center;
 }
 
 header h1 {
@@ -91,6 +92,15 @@ button {
     text-shadow: 1px 1px 3px #68d39138;
 }
 
+button:active {
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo01);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 
 .material-symbols-outlined {
   font-variation-settings:
@@ -116,5 +126,4 @@ button {
 
 .bloco-quebra p {
     color: var(--cor-texto);
-    font-weight: normal;
 }

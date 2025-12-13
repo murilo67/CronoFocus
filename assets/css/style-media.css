@@ -1,0 +1,25 @@
+@media screen and (min-width: 768px) {
+    #botao-configuracoes, #botao-play, #botao-pause {
+        font-size: 35px;
+    }
+
+    .titulo-main {
+        font-size: 35px;
+    }
+
+    #hora-principal p, .bloco-quebra p {
+        font-size: 20px;
+    }
+
+    .timer {
+        width: 120px;
+        height: 120px;
+        font-size: 85px;
+    }
+
+    button {
+        width: 100px;
+        height: 50px;
+        font-size: 25px;
+    }
+}
