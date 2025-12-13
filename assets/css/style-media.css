@@ -1,5 +1,5 @@
 @media screen and (min-width: 768px) {
-    #botao-configuracoes, #botao-play, #botao-pause {
+    #botao-configuracoes, #botao-play, #botao-pause, #botao-skip {
         font-size: 35px;
     }
 
@@ -17,10 +17,13 @@
         font-size: 85px;
     }
 
+    .botao {
+        font-size: 25px;
+    }
+
     #botao-iniciar {
         width: 100px;
         height: 50px;
-        font-size: 25px;
     }
 
     dialog {

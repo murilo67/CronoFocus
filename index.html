@@ -23,7 +23,6 @@
             <span class="material-symbols-outlined" id="botao-configuracoes">settings</span>
         </nav>
     </header>
-    
     <main>
         <h1 class="titulo-main">Timer Principal</h1>
         <section id="hora-principal">
@@ -43,9 +42,8 @@
         <section id="botoes">
             <span class="material-symbols-outlined" id="botao-pause">play_arrow</span>
             <span class="material-symbols-outlined" id="botao-play">pause</span>
-            
-            
-            <button id="botao-iniciar">Iniciar</button>
+            <span class="material-symbols-outlined" id="botao-skip">skip_next</span>
+            <button id="botao-iniciar" class="botao">Iniciar</button>
         </section>
         <section id="marcador-tempo">
             <h1 class="titulo-main">Bloco <span id="bloco-atual">1</span> / <span id="bloco-total">11</span></h1>
@@ -82,10 +80,17 @@
                 <label for="segundos-id">Segundos:</label>
                 <input type="number" name="segundos-name" id="segundos-id" value="00" min="0" max="59">
             </div>
-            <button id="salvar-config">Salvar</button>
+            
         </section>
+        <footer id="rodape-config">
+            <p id="mensagem-erro"></p>
+            <button id="salvar-config">Salvar</button>
+        </footer>
     </dialog>
     <div id="overlay"></div>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/timer.js"></script>
+    <script src="assets/js/bloco.js"></script>
 </body>
 </html>
