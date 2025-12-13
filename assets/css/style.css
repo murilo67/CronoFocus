@@ -84,6 +84,13 @@ button {
     text-shadow: 1px 1px 3px #68d39138;
 }
 
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1
+}
+
+
 #botao-play, #botao-pause {
     display: none;
 }
