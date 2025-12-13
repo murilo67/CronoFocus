@@ -22,10 +22,8 @@
         <nav>
             <span class="material-symbols-outlined" id="botao-configuracoes">settings</span>
         </nav>
-        <dialog>
-            
-        </dialog>
     </header>
+    
     <main>
         <h1 class="titulo-main">Timer Principal</h1>
         <section id="hora-principal">
@@ -43,21 +41,22 @@
             </div>
         </section>
         <section id="botoes">
-            <span class="material-symbols-outlined" id="botao-play">play_arrow</span>
+            <span class="material-symbols-outlined" id="botao-pause">play_arrow</span>
+            <span class="material-symbols-outlined" id="botao-play">pause</span>
             
             
             <button id="botao-iniciar">Iniciar</button>
         </section>
         <section id="marcador-tempo">
-            <h1 class="titulo-main">Bloco 1 / 11</h1>
+            <h1 class="titulo-main">Bloco <span id="bloco-atual">1</span> / <span id="bloco-total">11</span></h1>
             <div class="bloco-quebra">
                 <div class="bloco-timer">
                     <p>Minutos</p>
-                    <div class="timer" id="minutos">30</div>
+                    <div class="timer" id="bloco-minutos">30</div>
                 </div>
                 <div class="bloco-timer">
                     <p>Segundos</p>
-                    <div class="timer" id="segundos">00</div>
+                    <div class="timer" id="bloco-segundos">00</div>
                 </div>
                 </div>
         </section>
@@ -65,6 +64,28 @@
     <!--
     <span class="material-symbols-outlined">dark_mode</span>
     -->  
+    <dialog id="config">
+        <div id="cabecalho-config">
+            <h1>Configurações</h1>
+            <span class="material-symbols-outlined" id="fechar">close</span>
+        </div>
+        <section id="definir-timer">
+            <p>
+                Horas:
+                <input type="number" name="" id="">
+            </p>
+            <p>
+                Minutos:
+                <input type="number" name="" id="">
+            </p>
+            <p>
+                Segundos:
+                <input type="number" name="" id="">
+            </p>
+            <button>Salvar</button>
+        </section>
+    </dialog>
+    <div id="overlay"></div>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
