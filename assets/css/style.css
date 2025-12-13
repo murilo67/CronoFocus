@@ -46,6 +46,10 @@ header h1 {
     color: var(--cor-texto);
 }
 
+#botao-configuracoes, #botao-play, #botao-pause {
+    font-size: 28px;
+}
+
 #hora-principal {
     display: flex;
     justify-content: center;
@@ -66,4 +70,20 @@ header h1 {
 #botoes {
     display: flex;
     justify-content: center;
+}
+
+button {
+    background-color: var(--cor-fundo01);
+    color: var(--cor-texto);
+    border: 1px solid #68D391;
+    padding: 5px;
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    box-shadow: 1px 1px 3px #68d39145;
+    text-shadow: 1px 1px 3px #68d39138;
+}
+
+#botao-play, #botao-pause {
+    display: none;
 }
