@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CronoFocus</title>
+    <link rel="stylesheet" href="assets/css/global.css" media="all">
+    <link rel="stylesheet" href="assets/css/media.css">
+    <link rel="shortcut icon" href="assets/midia/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <dialog class="erro">
+        <p>Erro: </p>
+    </dialog>
+    <header>
+        <div class="logo">
+            <svg viewBox="0 0 16.00 16.00" fill="none" xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
+                <g id="SVGRepo_iconCarrier"> <path d="M3.95706 1.45712L1.45706 3.95712L0.0428467 2.54291L2.54285 0.0429077L3.95706 1.45712Z" fill="currentColor"/> <path fill-rule="evenodd" clip-rule="evenodd" d="M14.4999 8.50003C14.4999 9.80523 14.1152 11.0206 13.453 12.0389L15.707 14.2929L14.2928 15.7071L12.1163 13.5307C10.9954 14.449 9.56199 15 7.99986 15C6.43776 15 5.00436 14.449 3.88344 13.5307L1.70701 15.7071L0.2928 14.2929L2.54678 12.0389C1.88457 11.0206 1.49986 9.80525 1.49986 8.50003C1.49986 4.91018 4.41001 2.00003 7.99986 2.00003C11.5897 2.00003 14.4999 4.91018 14.4999 8.50003ZM6.99995 5V9.41421L9.29285 11.7071L10.7071 10.2929L8.99995 8.58579V5H6.99995Z" fill="currentColor"/> <path d="M14.5428 3.95714L12.0428 1.45714L13.457 0.0429222L15.957 2.54292L14.5428 3.95714Z" fill="currentColor"/></g>
+            </svg>
+            <h1>CronoFocus</h1>
+        </div>
+        <img src="assets/midia/config.svg" alt="Configurações" type="image/svg+xml" id="btn-config" class="controls">
+    </header>
+    <main>
+        <section>
+            <h2>Timer Principal</h2>
+            <div class="timer-display">
+                <div class="timer-unit">
+                    <p>Horas</p>
+                    <div class="timer-value" id="main-hr">01</div>
+                </div>
+                <div class="timer-unit">
+                    <p>Minutos</p>
+                    <div class="timer-value" id="main-min">00</div>
+                </div>
+                <div class="timer-unit">
+                    <p>Segundos</p>
+                    <div class="timer-value" id="main-seg">00</div>
+                </div>   
+            </div>
+            <div class="section-controles">
+                    <button class="btn" id="btn-start">Iniciar</button>
+                    <img src="assets/midia/pause.svg" alt="Pausar" type="image/svg+xml" id="btn-pause" class="controls controls-after">
+                    <img src="assets/midia/play.svg" alt="Despausar" id="btn-play" class="controls controls-after">
+                    <img src="assets/midia/skip.svg" alt="Pular" id="btn-skip" class="controls controls-after">
+                    <img src="assets/midia/fechar-timer.svg" alt="Fechar" class="controls controls-after" id="btn-cancel">
+            </div>
+        </section>
+        <section id="block-timer">
+            <h2>Bloco <span id="block-atual">01</span> / <span id="block-total">02</span></h2>
+            <div class="timer-display">
+                <div class="timer-unit">
+                    <p>Minutos</p>
+                    <div class="timer-value" id="block-min">30</div>
+                </div>
+                <div class="timer-unit">
+                    <p>Segundos</p>
+                    <div class="timer-value" id="block-seg">00</div>
+                </div>
+            </div>
+        </section>
+    </main> 
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

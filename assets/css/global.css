@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Space Grotesk'
+}
+
+:root {
+    --cor01: #080B14;
+    --cor02: #0F1324;
+    --cor04: #6C63FF;
+    --cor05: #ece2ff;
+}
+
+.erro {
+    display: fixed;
+    left: 50%;
+    top: -100px; /*Colocar 10 pra quando a mensagem aparecer*/
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: #e74545;
+    color: white;
+    border: 1px solid white;
+    width: 200px;
+    padding: 5px;
+    transition: translateY 1s;
+}
+
+body {
+    background-color: var(--cor01);
+    background-image: linear-gradient(to bottom, var(--cor01), #6b63ff28);
+    color: var(--cor05);
+    height: 100vh;
+}
+
+.controls {
+    width: 28px;
+}
+
+.controls-after {
+    display: none;
+}
+
+header {
+    display: flex;
+    height: 50px;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+header svg {
+    width: 28px;
+    margin-right: 3px;
+    color: var(--cor04);
+}
+
+header h1 {
+    font-size: 25px;
+}
+
+.logo {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+main h2 {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bolder;
+}
+
+main p {
+    text-align: center;
+    font-weight: 500;
+}
+
+.timer-display {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0px;
+}
+
+.timer-value {
+    border: 1px solid var(--cor04);
+    min-width: 90px;
+    min-height: 90px;
+    font-size: 65px;
+    font-weight: 500;
+    text-align: center;
+    background-color: var(--cor02);
+}
+
+.section-controles {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.btn {
+    padding: 7px;
+    font-size: 21px;
+    border: 1px solid var(--cor04);
+    background-color: var(--cor02);
+    color: var(--cor05);
+    box-shadow: 2px 1px 5px #6b63ff4b;
+    -webkit-user-select: none; /* Compatibilidade com navegadores WebKit/Blink (Chrome, Safari, Opera) */
+    -moz-user-select: none; /* Compatibilidade com Firefox */
+    -ms-user-select: none; /* Compatibilidade com Internet Explorer/Edge */
+    user-select: none; /* Sintaxe padrão (Chrome, Firefox, Edge, Safari e Opera modernos) */
+}
+
+.btn:active {
+    background-color: var(--cor04);
+    color: var(--cor01);
+}
+
+#block-timer {
+    display: none;
+}
