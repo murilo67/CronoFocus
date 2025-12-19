@@ -1,5 +1,6 @@
 const Config = {
     BtnConfig : document.getElementById('btn-config'),
+    WindowConfig : document.getElementById('config'),
     DarkMode : true
 }
 
@@ -27,6 +28,7 @@ const BlockTimer = {
     BlocoTotal : document.getElementById('block-total'),
     min : document.getElementById('block-min'),
     seg : document.getElementById('block-seg'),
+    reiniciar : false,
     DuracaoBlockTimer : 0,
     CronoBlock : null
 }
@@ -43,7 +45,13 @@ if (Total < 10) {
 
 
 // Abrir / Fechar configurações
+function AbrirConfig() {
+    Config.WindowConfig.showModal()
+}
 
+function FecharConfig() {
+    Config.WindowConfig.close()
+}
 
 // Rodar o Timer
 function RodarTimerMain() {
@@ -96,11 +104,25 @@ function RodarBlockTimer() {
 
     if (BlockTimer.DuracaoBlockTimer == 0) {
         clearInterval(BlockTimer.CronoBlock)
+
+        if (Number(BlockTimer.BlocoAtual.innerText) < Math.floor(Total)) {
+            if (Number(BlockTimer.BlocoAtual.innerText) < 10) {
+                BlockTimer.BlocoAtual.innerText = `0${Number(BlockTimer.BlocoAtual.innerText) + 1}`
+            } else {
+                BlockTimer.BlocoAtual.innerText = `${Number(BlockTimer.BlocoAtual.innerText) + 1}`
+            }
+        }
+
+        
     }
 }
 
 function RodarSobra() {
 
+}
+
+function Reiniciar() {
+    
 }
 
 // Quando apertar o btn-start aparecer fazer o timer funcionar
@@ -172,6 +194,7 @@ function Cancel() {
     clearInterval(TimerDisplay.CronoMain)
 }
 
+Config.BtnConfig.addEventListener('click', AbrirConfig)
 TimerDisplay.BtnStart.addEventListener('click', Iniciar)
 TimerDisplay.BtnPause.addEventListener('click', Pausar)
 TimerDisplay.BtnPlay.addEventListener('click', Play)

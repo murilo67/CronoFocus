@@ -27,7 +27,7 @@
             <div class="timer-display">
                 <div class="timer-unit">
                     <p>Horas</p>
-                    <div class="timer-value" id="main-hr">01</div>
+                    <div class="timer-value" id="main-hr">00</div>
                 </div>
                 <div class="timer-unit">
                     <p>Minutos</p>
@@ -47,11 +47,11 @@
             </div>
         </section>
         <section id="block-timer">
-            <h2>Bloco <span id="block-atual">01</span> / <span id="block-total">02</span></h2>
+            <h2>Bloco <span id="block-atual">00</span> / <span id="block-total">00</span></h2>
             <div class="timer-display">
                 <div class="timer-unit">
                     <p>Minutos</p>
-                    <div class="timer-value" id="block-min">01</div>
+                    <div class="timer-value" id="block-min">00</div>
                 </div>
                 <div class="timer-unit">
                     <p>Segundos</p>
@@ -59,7 +59,62 @@
                 </div>
             </div>
         </section>
-    </main> 
+    </main>
+    <dialog id="config">
+        <header>
+            <h1>Configurações</h1>
+            <!--Botão de fechar-->
+        </header>
+        <section>
+            <section id="def-timer">
+                <div>
+                    <label for="horas-id">Horas:</label>
+                    <input type="number" name="horas-name" id="horas-id" value="5" min="0" max="24">
+                </div>
+                <div>
+                    <label for="minutos-id">Minutos:</label>
+                    <input type="number" name="minutos-name" id="minutos-id" value="30" min="0" max="59">
+                </div>
+                <div>
+                    <label for="segundos-id">Segundos:</label>
+                    <input type="number" name="segundos-name" id="segundos-id" value="0" min="0" max="59">
+                </div>
+            </section>
+            <section>
+                Separar em blocos de 
+                <input type="number" name="quebra-name" id="quebra-id" value="30" min="1" max="60"> 
+                minutos
+            </section>
+            <section>
+                <p>Modo do Timer</p>
+                <select name="lista-timer-name" id="lista-timer-id">
+                    <option selected>Padrão</option>
+                    <option>Pomodoro</option>
+                </select>
+            </section>
+            <section>
+                <p>Habilitar separação de blocos</p>
+                <div class="espaco-ativacao">
+                    <div class="circle-ativacao"></div>
+                </div>
+            </section>
+        </section>
+        <section>
+            <div>
+                <p>Modo Escuro / Modo Claro</p>
+                <div class="espaco-ativacao">
+                    <div class="circle-ativacao">
+                        <!--Ícone DarkMode-->
+                        <!--Ícone LightMode-->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p></p>
+            <button>Salvar</button>
+        </footer>
+    </dialog>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
