@@ -12,21 +12,28 @@
     --cor01: #080B14;
     --cor02: #0F1324;
     --cor04: #6C63FF;
-    --cor05: #ece2ff;
+    --cor05: #fcfaff;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
 }
 
 .erro {
-    display: fixed;
+    position: fixed;
     left: 50%;
-    top: -100px; /*Colocar 10 pra quando a mensagem aparecer*/
+    top: -100px; /*Colocar 10px pra quando a mensagem aparecer*/
     transform: translateX(-50%);
-    z-index: 10;
     background-color: #e74545;
     color: white;
     border: 1px solid white;
     width: 200px;
     padding: 5px;
-    transition: translateY 1s;
+    transition: top 1s;
 }
 
 body {
@@ -38,6 +45,7 @@ body {
 
 .controls {
     width: 28px;
+    font-size: 30px;
 }
 
 .controls-after {
@@ -80,6 +88,10 @@ main p {
     font-weight: 500;
 }
 
+#config-light {
+    display: none;
+}
+
 .timer-display {
     display: flex;
     flex-flow: row wrap;
@@ -104,6 +116,7 @@ main p {
     justify-content: center;
     margin-bottom: 30px;
     gap: 10px;
+    color: var(--cor04);
 }
 
 .btn {
@@ -135,8 +148,97 @@ main p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: none;
+    z-index: 10;
 }
 
-#config header {
-    
+#cabecalho {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#cabecalho h1 {
+    font-size: 20px;
+    display: block;
+    margin: auto;
+}
+
+#def-timer {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.def-timer {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+input[type='number'] {
+    width: 40px;
+    height: 20px;
+    padding: 2px;
+}
+
+dialog section {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#config-modo-timer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.espaco-ativacao {
+    width: 47px;
+    height: 25px;
+    border: 1px solid #080B14;
+    border-radius: 100px;
+    position: relative;
+    background-color: #080B14;
+
+    transition: background-color .3s;
+}
+
+.circle-ativacao {
+    width: 27px;
+    height: 27px;
+    background-color: #fcfaff;
+    border: 1px solid #080B14;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    left: 20px; /*-3px para quando ativar*/
+    transform: translateY(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: left .5s;
+}
+
+dialog footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+
+#config-salvar {
+    width: 42px;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000000b3;
+    backdrop-filter: blur(2px);
+    display: none;
+    z-index: 4;
 }

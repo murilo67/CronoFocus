@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="assets/midia/icons/favicon.svg" type="image/svg+xml">
 </head>
 <body>
-    <dialog class="erro">
+    <dialog class="erro" open>
         <p>Erro: </p>
     </dialog>
     <header>
@@ -19,7 +19,7 @@
             </svg>
             <h1>CronoFocus</h1>
         </div>
-        <img src="assets/midia/icons/config.svg" alt="Configurações" type="image/svg+xml" id="btn-config" class="controls">
+        <img src="assets/midia/icons/config-dark.svg" alt="Configurações" type="image/svg+xml" class="controls" id="btn-config">
     </header>
     <main>
         <section>
@@ -27,7 +27,7 @@
             <div class="timer-display">
                 <div class="timer-unit">
                     <p>Horas</p>
-                    <div class="timer-value" id="main-hr">00</div>
+                    <div class="timer-value" id="main-hr">01</div>
                 </div>
                 <div class="timer-unit">
                     <p>Minutos</p>
@@ -47,11 +47,11 @@
             </div>
         </section>
         <section id="block-timer">
-            <h2>Bloco <span id="block-atual">00</span> / <span id="block-total">00</span></h2>
+            <h2>Bloco <span id="block-atual">01</span> / <span id="block-total">00</span></h2>
             <div class="timer-display">
                 <div class="timer-unit">
                     <p>Minutos</p>
-                    <div class="timer-value" id="block-min">00</div>
+                    <div class="timer-value" id="block-min">30</div>
                 </div>
                 <div class="timer-unit">
                     <p>Segundos</p>
@@ -61,23 +61,19 @@
         </section>
     </main>
     <dialog id="config">
-        <header>
+        <section id="cabecalho">
             <h1>Configurações</h1>
-            <!--Botão de fechar-->
-        </header>
+            <img src="assets/midia/icons/close.svg" alt="Fechar" id="config-fechar">
+        </section>
         <section>
             <section id="def-timer">
-                <div>
+                <div class="def-timer">
                     <label for="horas-id">Horas:</label>
-                    <input type="number" name="horas-name" id="horas-id" value="5" min="0" max="24">
+                    <input type="number" name="horas-name" id="horas-id" value="1" min="0" max="24">
                 </div>
-                <div>
+                <div class="def-timer">
                     <label for="minutos-id">Minutos:</label>
-                    <input type="number" name="minutos-name" id="minutos-id" value="30" min="0" max="59">
-                </div>
-                <div>
-                    <label for="segundos-id">Segundos:</label>
-                    <input type="number" name="segundos-name" id="segundos-id" value="0" min="0" max="59">
+                    <input type="number" name="minutos-name" id="minutos-id" value="0" min="0" max="59">
                 </div>
             </section>
             <section>
@@ -85,36 +81,24 @@
                 <input type="number" name="quebra-name" id="quebra-id" value="30" min="1" max="60"> 
                 minutos
             </section>
-            <section>
+            <section id="config-modo-timer">
                 <p>Modo do Timer</p>
                 <select name="lista-timer-name" id="lista-timer-id">
                     <option selected>Padrão</option>
                     <option>Pomodoro</option>
                 </select>
             </section>
-            <section>
-                <p>Habilitar separação de blocos</p>
-                <div class="espaco-ativacao">
-                    <div class="circle-ativacao"></div>
-                </div>
-            </section>
-        </section>
-        <section>
-            <div>
-                <p>Modo Escuro / Modo Claro</p>
-                <div class="espaco-ativacao">
-                    <div class="circle-ativacao">
-                        <!--Ícone DarkMode-->
-                        <!--Ícone LightMode-->
-                    </div>
-                </div>
-            </div>
         </section>
         <footer>
-            <p></p>
-            <button>Salvar</button>
+            <button id="config-salvar">Salvar</button>
         </footer>
     </dialog>
+    <div id="overlay"></div>
+    <!--
+    <div class="espaco-ativacao" id="espaco-darkmode">
+        <div class="circle-ativacao" id="circle-darkmode"></div>
+    </div>
+    -->
     <script src="assets/js/script.js"></script>
 </body>
 </html>
