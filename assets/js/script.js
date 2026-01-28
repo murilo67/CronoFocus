@@ -1,165 +1,74 @@
-const Config = {
-    BtnConfig : document.getElementById('btn-config'),
-    BtnFechar : document.getElementById('config-fechar'),
-    WindowConfig : document.getElementById('config'),
-    Overlay : document.getElementById('overlay'),
-    BtnSalvar : document.getElementById('config-salvar'),
-    MsgErro : document.getElementById('erro')
+const mainTimer = {
+    h_main : document.getElementById('main-h'),
+    min_main : document.getElementById('main-min'),
+    seg_main : document.getElementById('main-seg'),
+    sectionBlock : document.getElementById('section-block')
 }
 
-const TimerDisplay = {
-    BtnStart : document.getElementById('btn-start'),
-    BtnPause : document.getElementById('btn-pause'),
-    BtnPlay : document.getElementById('btn-play'),
-    BtnCancel : document.getElementById('btn-cancel'),
-    BtnSkip : document.getElementById('btn-skip'),
-    hr : document.getElementById('main-hr'),
-    min : document.getElementById('main-min'),
-    seg : document.getElementById('main-seg'),
-    DuracaoTimerMain : 0,
-    TempoAtivo : false,
-    Skip : false, // Botão de pular não foi apertado
-    CronoMain : null
+const blockTimer = {
+    minBlock : document.getElementById('block-min'),
+    segBlock : document.getElementById('block-seg'),
+    Total : document.getElementById('block-total'),
+    Atual : document.getElementById('block-atual')
 }
 
-
-const BlockTimer = {
-    secao : document.getElementById('block-timer'),
-    BlocoAtual : document.getElementById('block-atual'),
-    BlocoTotal : document.getElementById('block-total'),
-    min : document.getElementById('block-min'),
-    seg : document.getElementById('block-seg'),
-    reiniciar : false,
-    DuracaoBlockTimer : 0,
-    CronoBlock : null
+const buttons = {
+    start : document.getElementById('btn-start'),
+    pausar : document.getElementById('btn-pausar'),
+    play : document.getElementById('btn-play'),
+    pular : document.getElementById('btn-skip'),
+    cancelar : document.getElementById('btn-cancel')
 }
 
-// Abrir / Fechar configurações
-function AbrirConfig() {
-    Config.WindowConfig.showModal()
-    Config.Overlay.style.display = 'block'
-}
+let horaFutura_main = 0
+let horaFutura_block = 0
 
-function FecharConfig() {
-    Config.WindowConfig.close()
-    Config.Overlay.style.display = 'none'
-}
-
-function SalvarConfig() {
-    if (TimerDisplay.TempoAtivo == true) {
-        Config.MsgErro.style.top = '10px'
-        Config.MsgErro.innerText = 'Erro: Pause ou cancele o timer para alterar as configurações.'
-    } else {
-        let campoHr = document.getElementById('horas-id').value
-        let campoMin = document.getElementById('minutos-id').value
-        let campoBlock = document.getElementById('quebra-id').value
-
-        campoHr < 10 ? TimerDisplay.hr.innerText = `0${campoHr}` : TimerDisplay.hr.innerText = `${campoHr}`
-
-        campoMin < 10 ? TimerDisplay.min.innerText = `0${campoMin}` : TimerDisplay.min.innerText = `${campoMin}`
-
-        campoBlock < 10 ? BlockTimer.min.innerText = `0${campoBlock}` : BlockTimer.min.innerText = `${campoBlock}`
-        FecharConfig()
-    }
-}
-
-// Rodar o Timer
-function RodarTimerMain() {
-    TimerDisplay.DuracaoTimerMain -= 1
-
-    let HorasMain = Math.floor(TimerDisplay.DuracaoTimerMain / 3600)
-    let MinutosMain = Math.floor((TimerDisplay.DuracaoTimerMain % 3600) / 60)
-    let SegundosMain = Math.floor((TimerDisplay.DuracaoTimerMain % 3600) % 60)
-
-    if (HorasMain < 10) {
-        TimerDisplay.hr.innerText = `0${HorasMain}`
-    } else {
-        TimerDisplay.hr.innerText = `${HorasMain}`
-    }
-
-    if (MinutosMain < 10) {
-        TimerDisplay.min.innerText = `0${MinutosMain}`
-    } else {
-        TimerDisplay.min.innerText = `${MinutosMain}`
-    }
-    
-    if (SegundosMain < 10) {
-        TimerDisplay.seg.innerText = `0${SegundosMain}`
-    } else {
-        TimerDisplay.seg.innerText = `${SegundosMain}`
-    }
-    
-    if (TimerDisplay.DuracaoTimerMain == 0) {
-        clearInterval(TimerDisplay.CronoMain)
-    }
-}
-
-// Quando apertar o btn-start aparecer fazer o timer funcionar
 function Iniciar() {
-    BlockTimer.secao.style.display = 'block'
-    TimerDisplay.BtnStart.style.display = 'none'
-    TimerDisplay.BtnPause.style.display = 'block'
-    TimerDisplay.BtnCancel.style.display = 'block'
-    TimerDisplay.BtnSkip.style.display = 'block'
+    buttons.start.style.display = 'none'
+    buttons.pausar.style.display = 'block'
+    buttons.pular.style.display = 'block'
+    buttons.cancelar.style.display = 'block'
+    mainTimer.sectionBlock.style.display = 'block'
 
-    TimerDisplay.TempoAtivo = true
 
-    TimerDisplay.hr = document.getElementById('main-hr')
-    TimerDisplay.min = document.getElementById('main-min')
-    TimerDisplay.seg = document.getElementById('main-seg')
-
-    TimerDisplay.DuracaoTimerMain = (Number(TimerDisplay.hr.innerText) * 3600) + (Number(TimerDisplay.min.innerText) * 60) + Number(TimerDisplay.seg.innerText)
-    TimerDisplay.CronoMain = setInterval(RodarTimerMain, 1000)
 }
 
-// Quando apertar no botão de pausar, o timer pausa e aparece o botão de despausar
-function Pausar() {
-    TimerDisplay.BtnPause.style.display = 'none'
-    TimerDisplay.BtnPlay.style.display = 'block'
-    TimerDisplay.Pause = true
+function rodarTimer() {
+    const restante_main = horaFutura_main - Date.now() + 900
 
-    clearInterval(TimerDisplay.CronoMain)
+    const hora = Math.floor(restante_main / 3600000)
+    const minuto = Math.floor(restante_main % 3600000 / 60000)
+    const segundo = Math.floor(restante_main % 3600000 % 60000 / 1000)
+
+    hora < 10 ? mainTimer.h_main.innerText = `0${hora}` : mainTimer.h_main.innerText = `${hora}`
+    
+    minuto < 10 ? mainTimer.min_main.innerText = `0${minuto}` : mainTimer.min_main.innerText = `${minuto}`
+    
+    segundo < 10 ? mainTimer.seg_main.innerText = `0${segundo}` : mainTimer.seg_main.innerText = `${segundo}`
+
+    rodarBlock()
+
+    requestAnimationFrame(rodarTimer)
 }
 
-// Quando apertar no botão de despausar, o timer despausa e aparece o botão de pausar
-function Play() {
-    TimerDisplay.BtnPause.style.display = 'block'
-    TimerDisplay.BtnPlay.style.display = 'none'
-    TimerDisplay.Pause = false
+function rodarBlock() {
+    const restanteBlock = horaFutura_block - Date.now() + 900
 
-    TimerDisplay.CronoMain = setInterval(RodarTimerMain, 1000)
+    const minutoBlock = Math.floor(restanteBlock / 60000)
+    const segundoBlock = Math.floor(restanteBlock % 60000 / 1000)
+
+    minutoBlock < 10 ? blockTimer.minBlock.innerText = `0${minutoBlock}` : blockTimer.minBlock.innerText = `${minutoBlock}`
+
+    segundoBlock < 10 ? blockTimer.segBlock.innerText = `0${segundoBlock}` : blockTimer.segBlock.innerText = `${segundoBlock}`
 }
 
-// Quando apertar o botão de cancelar, o timer se reiniará por completo
-function Cancel() {
-    clearInterval(TimerDisplay.CronoMain)
+buttons.start.addEventListener('click', () => {
+    const duracao_main = Number(mainTimer.h_main.innerText) * 3600000 + Number(mainTimer.min_main.innerText) * 60000 // em milisegundo
+    horaFutura_main = Date.now() + duracao_main
 
-    BlockTimer.secao.style.display = 'none'
-    TimerDisplay.BtnStart.style.display = 'block'
-    TimerDisplay.BtnPause.style.display = 'none'
-    TimerDisplay.BtnCancel.style.display = 'none'
-    TimerDisplay.BtnSkip.style.display = 'none'
-    TimerDisplay.BtnPlay.style.display = 'none'
+    const duracao_block = Number(blockTimer.minBlock.innerText) * 60000
+    horaFutura_block = Date.now() + duracao_block
 
-    // Fazer o timer parar de funcionar e reiniciar
-    BlockTimer.BlocoAtual.innerText = '01'
-
-    clearInterval(TimerDisplay.CronoMain)
-}
-
-Config.BtnConfig.addEventListener('click', AbrirConfig)
-Config.BtnFechar.addEventListener('click', FecharConfig)
-Config.BtnSalvar.addEventListener('click', SalvarConfig)
-TimerDisplay.BtnStart.addEventListener('click', Iniciar)
-TimerDisplay.BtnPause.addEventListener('click', Pausar)
-TimerDisplay.BtnPlay.addEventListener('click', Play)
-TimerDisplay.BtnCancel.addEventListener('click', Cancel)
-
-/*
-Lista do que falta:
-- A lógica de reiniciar o bloco quando terminar o bloco anterior
-- Terminar  a lógica de pular um bloco
-- Fazer as configurações
-- terminar a lógica de fechar o timer
-- Adicionar as mensagens de erro
-*/
+    requestAnimationFrame(rodarTimer)
+})
+buttons.start.addEventListener('click', Iniciar)

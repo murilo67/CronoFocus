@@ -2,10 +2,6 @@
     #btn-config {
         width: 30px;
     }
-    
-    header {
-        padding: 10px;
-    }
 
     main h2 {
         font-size: 28px;
@@ -21,8 +17,12 @@
         font-size: 75px;
     }
 
-    .btn {
+    #btn-start {
         padding: 7px;
         font-size: 28px;
+    }
+
+    .btn-control {
+        width: 30px;
     }
 }

@@ -5,7 +5,8 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Space Grotesk'
+    font-family: 'Space Grotesk';
+    overflow-y: hidden;
 }
 
 :root {
@@ -15,89 +16,46 @@
     --cor05: #fcfaff;
 }
 
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
-
-.erro {
-    position: fixed;
-    left: 50%;
-    top: -100px; /*Colocar 10px pra quando a mensagem aparecer*/
-    transform: translateX(-50%);
-    background-color: #e74545;
-    color: white;
-    border: 1px solid white;
-    width: 200px;
-    padding: 5px;
-    transition: top 1s;
-}
-
 body {
     background-color: var(--cor01);
-    background-image: linear-gradient(to bottom, var(--cor01), #6b63ff28);
+    background-image: linear-gradient(to bottom, #080B14, #6b63ff30);
     color: var(--cor05);
     height: 100vh;
 }
 
-.controls {
-    width: 28px;
-    font-size: 30px;
-}
-
-.controls-after {
-    display: none;
-}
-
 header {
+    margin: 10px 7px 20px 7px;
     display: flex;
-    height: 50px;
-    flex-flow: row wrap;
     justify-content: space-between;
-    align-items: center;
-    padding: 5px;
+    align-items: flex-start;
 }
 
-header svg {
-    width: 28px;
-    margin-right: 3px;
-    color: var(--cor04);
-}
-
-header h1 {
-    font-size: 25px;
-}
-
-.logo {
+#marca-crono {
     display: flex;
-    flex-flow: row wrap;
-    align-items: center;
+    font-size: 12px;
+    gap: 2px;
 }
 
-main h2 {
+#logo-crono {
+    color: var(--cor04);
+    width: 28px;
+}
+
+section h2 {
     text-align: center;
-    margin-top: 10px;
-    font-weight: bolder;
-}
-
-main p {
-    text-align: center;
-    font-weight: 500;
-}
-
-#config-light {
-    display: none;
+    margin-bottom: 10px;
 }
 
 .timer-display {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
     gap: 10px;
-    margin: 10px 0px;
+    justify-content: center;
+}
+
+.timer-unit {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
 }
 
 .timer-value {
@@ -110,135 +68,40 @@ main p {
     background-color: var(--cor02);
 }
 
-.section-controles {
+.controles {
     display: flex;
-    flex-flow: row wrap;
     justify-content: center;
-    margin-bottom: 30px;
-    gap: 10px;
-    color: var(--cor04);
+    margin: 10px 0px 35px 0px;
+    gap: 4px;
 }
 
-.btn {
+.btn-control {
+    width: 28px;
+}
+
+#btn-start {
     padding: 7px;
     font-size: 21px;
     border: 1px solid var(--cor04);
     background-color: var(--cor02);
     color: var(--cor05);
     box-shadow: 2px 1px 5px #6b63ff4b;
-    -webkit-user-select: none; /* Compatibilidade com navegadores WebKit/Blink (Chrome, Safari, Opera) */
-    -moz-user-select: none; /* Compatibilidade com Firefox */
-    -ms-user-select: none; /* Compatibilidade com Internet Explorer/Edge */
-    user-select: none; /* Sintaxe padrão (Chrome, Firefox, Edge, Safari e Opera modernos) */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.btn:active {
+#btn-start:active {
     background-color: var(--cor04);
-    color: var(--cor01);
+    color: var(--cor02);
 }
 
-#block-timer {
+.btn-control {
     display: none;
 }
 
-#config {
-    width: 300px;
-    padding: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: none;
-    z-index: 10;
-}
 
-#cabecalho {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-#cabecalho h1 {
-    font-size: 20px;
-    display: block;
-    margin: auto;
-}
-
-#def-timer {
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px;
-}
-
-.def-timer {
-    display: flex;
-    flex-flow: column wrap;
-}
-
-input[type='number'] {
-    width: 40px;
-    height: 20px;
-    padding: 2px;
-}
-
-dialog section {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-#config-modo-timer {
-    display: flex;
-    justify-content: space-between;
-}
-
-.espaco-ativacao {
-    width: 47px;
-    height: 25px;
-    border: 1px solid #080B14;
-    border-radius: 100px;
-    position: relative;
-    background-color: #080B14;
-
-    transition: background-color .3s;
-}
-
-.circle-ativacao {
-    width: 27px;
-    height: 27px;
-    background-color: #fcfaff;
-    border: 1px solid #080B14;
-    border-radius: 50%;
-
-    position: absolute;
-    top: 50%;
-    left: 20px; /*-3px para quando ativar*/
-    transform: translateY(-50%);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transition: left .5s;
-}
-
-dialog footer {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-}
-
-#config-salvar {
-    width: 42px;
-}
-
-#overlay {
-    position: absolute;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: #000000b3;
-    backdrop-filter: blur(2px);
+#section-block {
     display: none;
-    z-index: 4;
 }
