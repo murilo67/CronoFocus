@@ -22,6 +22,7 @@ const buttons = {
 
 let horaFutura_main = 0
 let horaFutura_block = 0
+let tempo_block = 0
 
 function Iniciar() {
     buttons.start.style.display = 'none'
@@ -46,13 +47,13 @@ function rodarTimer() {
     
     segundo < 10 ? mainTimer.seg_main.innerText = `0${segundo}` : mainTimer.seg_main.innerText = `${segundo}`
 
-    rodarBlock()
+    //rodarBlock()
 
     requestAnimationFrame(rodarTimer)
 }
 
-function rodarBlock() {
-    const restanteBlock = horaFutura_block - Date.now() + 900
+/*function rodarBlock() {
+    let restanteBlock = horaFutura_block - Date.now() + 900
 
     const minutoBlock = Math.floor(restanteBlock / 60000)
     const segundoBlock = Math.floor(restanteBlock % 60000 / 1000)
@@ -60,14 +61,21 @@ function rodarBlock() {
     minutoBlock < 10 ? blockTimer.minBlock.innerText = `0${minutoBlock}` : blockTimer.minBlock.innerText = `${minutoBlock}`
 
     segundoBlock < 10 ? blockTimer.segBlock.innerText = `0${segundoBlock}` : blockTimer.segBlock.innerText = `${segundoBlock}`
-}
+
+   if (restanteBlock <= 1000) {
+        horaFutura_block = Date.now() + tempo_block
+        return
+    }
+}*/
 
 buttons.start.addEventListener('click', () => {
     const duracao_main = Number(mainTimer.h_main.innerText) * 3600000 + Number(mainTimer.min_main.innerText) * 60000 // em milisegundo
     horaFutura_main = Date.now() + duracao_main
 
-    const duracao_block = Number(blockTimer.minBlock.innerText) * 60000
+    /*const duracao_block = Number(blockTimer.minBlock.innerText) * 60000
     horaFutura_block = Date.now() + duracao_block
+
+    tempo_block = duracao_block*/
 
     requestAnimationFrame(rodarTimer)
 })
